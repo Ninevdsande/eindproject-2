@@ -7,4 +7,13 @@
     <RootNamespace>eindproject_2</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\NewFolder\" />
+    <Folder Include="wwwroot\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\cherso1.jfif" />
+  </ItemGroup>
+
 </Project>

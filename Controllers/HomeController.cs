@@ -17,7 +17,24 @@ namespace eindproject_2.Controllers
         {
             return View();
         }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Route("contact")]
+        public IActionResult Contact(Person person)
+        {
+            if (ModelState.IsValid)
+                DatabaseConnector.SavePerson(person);
+            return Redirect("/Succes");
+            return View(person);
 
+        }
+        public IActionResult Accommodaties()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
