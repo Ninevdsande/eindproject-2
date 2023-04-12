@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace eindproject_2.Controllers
 {
-    public class HomeController : Controller
+   public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -17,18 +17,22 @@ namespace eindproject_2.Controllers
         {
             return View();
         }
+        public IActionResult Zoeken()
+        {
+           return View();
+        }
         public IActionResult Contact()
         {
-            return View();
+           return View();
         }
         [HttpPost]
         [Route("contact")]
-        public IActionResult Contact(Person person)
+       public IActionResult Contact(Person person)
         {
             if (ModelState.IsValid)
                 DatabaseConnector.SavePerson(person);
             return Redirect("/Succes");
-            return View(person);
+           return View(person);
 
         }
         public IActionResult Accommodaties()
