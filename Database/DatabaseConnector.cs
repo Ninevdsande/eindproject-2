@@ -1,9 +1,11 @@
-﻿using MySql.Data.MySqlClient;
+﻿using eindproject_2.Models;
+using MySql.Data.MySqlClient;
 
 namespace eindproject_2.Database
 {
     public static class DatabaseConnector
     {
+        private static string connectionString;
 
         public static List<Dictionary<string, object>> GetRows(string query)
         {

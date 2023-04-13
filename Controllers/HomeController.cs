@@ -34,8 +34,18 @@ namespace eindproject_2.Controllers
         }
         [HttpPost]
         [Route("contact")]
+
+        public IActionResult Contact(string voornaam, string achternaam)
+        {
+            ViewData["voornaam"] = voornaam;
+            ViewData["achternaam"] = achternaam;
+
+            return View();  
+        }
        public IActionResult Contact(Person person)
         {
+            ViewData["Voornaam"] = person.Voornaam;
+            ViewData["Achternaam"] = person.Achternaam;
             if (ModelState.IsValid)
                 DatabaseConnector.SavePerson(person);
             return Redirect("/Succes");

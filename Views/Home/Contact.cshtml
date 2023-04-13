@@ -1,4 +1,4 @@
-﻿@Model Person
+﻿@model Person
 @{
     ViewData["Title"] = "Contact";
 }
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="label">Bericht:</label>
                             <textarea class="input" name="opmerkingen" placeholder="opmerkingen"></textarea>
-                            @Html.ValidationMessageFor(m => m.opmerkingen)
+                            @Html.ValidationMessageFor(m => m.Opmerkingen)
                         </div>
                     </div>
                     <div class="col-1">
