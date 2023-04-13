@@ -1,3 +1,16 @@
-﻿@{
+﻿@using eindproject_2.Database
+@Model List<Huizen>@{
     ViewData["Title"] = "Accommodaties";
 }
+
+<div class= "div1">
+    <ul>
+        @foreach (var huizen in Model)
+            {
+                <li class="accommodaties">
+                    <img class="afbeeldingh" src="@huizen.Afbeelding" />
+                    <a href="/huizen/ @huizen.id"> @huizen.naam <br> @huizen.beschrijving_kort</a>
+                </li>
+            }
+        </ul>
+</div>

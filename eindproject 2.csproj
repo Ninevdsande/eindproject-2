@@ -16,4 +16,8 @@
     <None Include="wwwroot\img\cherso1.jfif" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.32.1" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,8 @@
 ﻿using eindproject_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using MySql.Data;
+using eindproject_2.Database;
 
 namespace eindproject_2.Controllers
 {
@@ -15,11 +17,16 @@ namespace eindproject_2.Controllers
 
         public IActionResult Index()
         {
-            return View();
+          var huizen = GetAllHuizen();
+            return View(huizen);    
+
+         
         }
+      
+        
         public IActionResult Zoeken()
         {
-           return View();
+            return View();
         }
         public IActionResult Contact()
         {
@@ -48,6 +55,32 @@ namespace eindproject_2.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public List<Huizen> GetAllHuizen()
+        {
+            var rows = DatabaseConnector.GetRows("select * from huizen");
+
+            List<Huizen> huizen = new List<Huizen>();
+
+            foreach (var row in rows)
+            {
+                Huizen h = new Huizen();
+                h.naam = row["naam"].ToString();
+                h.type = row["type"].ToString();
+                h.locatie = row["locatie"].ToString();
+                h.beschrijving_kort = row["beschrijving_kort"].ToString();
+                h.beschrijving_lang = row["beschrijving_lang"].ToString();
+                h.datum_begin = row["datum_begin"].ToString();
+                h.datum_eind = row["datum_eind"].ToString();
+                h.afbeelding = row["afbeelding"].ToString();
+                h.prijs = row["prijs"].ToString();
+                h.id = Convert.ToInt32(row["id"]);
+
+                huizen.Add(h);  
+            }
+
+            return huizen;
         }
     }
 }

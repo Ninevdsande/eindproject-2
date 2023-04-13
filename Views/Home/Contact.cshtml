@@ -1,10 +1,11 @@
-﻿@{
+﻿@Model Person
+@{
     ViewData["Title"] = "Contact";
 }
 <div class="contactpage">
     <button onclick="history.back()" class="back">&#8249;</button>
     <h1>@ViewData["Title"]</h1>
-    // Hier moet nogh van alles aam geconncet worden met de database
+    
     <div class="contact">
         <div class="contact-1">
             <form method="post" class="contactform">
@@ -12,15 +13,15 @@
                     <div class="col-1">
                         <div class="form-group">
                             <label class="label">Voornaam:</label>
-                            <input type="text" class="input" name="firstname" placeholder="Naam" />
-                            @Html.ValidationMessageFor(m => m.FirstName)
+                            <input type="text" class="input" name="voornaam" placeholder="Naam" />
+                            @Html.ValidationMessageFor(m => m.Voornaam)
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-group">
                             <label class="label">Achternaam:</label>
-                            <input type="text" class="input" name="lastname" placeholder="Naam" />
-                            @Html.ValidationMessageFor(m => m.LastName)
+                            <input type="text" class="input" name="achternaam" placeholder="Naam" />
+                            @Html.ValidationMessageFor(m => m.Achternaam)
                         </div>
                     </div>
                     <div class="col-1">
@@ -33,14 +34,14 @@
                     <div class="col-1">
                         <div class="form-group">
                             <label class="label">Telefoonnummer:</label>
-                            <input type="text" class="input" name="phone" placeholder="Telefoon" />
+                            <input type="text" class="input" name="telefoonnummer" placeholder="Telefoon" />
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-group">
                             <label class="label">Bericht:</label>
-                            <textarea class="input" name="description" placeholder="Beschrijving"></textarea>
-                            @Html.ValidationMessageFor(m => m.Description)
+                            <textarea class="input" name="opmerkingen" placeholder="opmerkingen"></textarea>
+                            @Html.ValidationMessageFor(m => m.opmerkingen)
                         </div>
                     </div>
                     <div class="col-1">
@@ -72,7 +73,7 @@
                     <div class="data">
                         <img src="~/img/email.png" class="icon" />
                     </div>
-                    <p><b>E-mail:  </b> <a href="mailto:email@example.com">info@cinemania.nl</a></p>
+                    <p><b>E-mail:  </b> <a href="mailto:email@example.com">info@chersohomes.nl</a></p>
                 </div>
             </div>
         </div>
