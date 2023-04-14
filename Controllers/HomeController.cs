@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using MySql.Data;
 using eindproject_2.Database;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace eindproject_2.Controllers
 {
@@ -18,9 +22,7 @@ namespace eindproject_2.Controllers
         public IActionResult Index()
         {
           var huizen = GetAllHuizen();
-            return View(huizen);    
-
-         
+            return View(huizen.Take(6).ToList());
         }
       
         
@@ -66,6 +68,8 @@ namespace eindproject_2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
         public List<Huizen> GetAllHuizen()
         {
